@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="warning" title="Go back"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">register</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header color="warning">
+
+        <ion-card-title>Register</ion-card-title>
+        
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-list>
+          <ion-list>
+            <ion-item>
+              <ion-input label="Name:" placeholder=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Surname:" placeholder=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Country:" placeholder=""></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-input label="Zip code:" type="number" placeholder=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Telephone number:" type="tel" placeholder=""></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-input label="E-mail:" type="email" placeholder=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Password:" type="password" value=""></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Confirm password:" type="password" value=""></ion-input>
+            </ion-item>
+
+           
+          </ion-list>
+        </ion-list>
+        
+        
+        <br/>
+        <div class="terms"><ion-checkbox color="warning" justify="space-between">I agree to the terms and conditions</ion-checkbox></div>
+        <br/>
+        <ion-button color="warning" size="full" shape="round" (click)="register()">REGISTER</ion-button>
+        <ion-button color="warning" fill="clear" size="full" shape="round" (click)="login()">I already have an account</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+
