@@ -13,12 +13,4 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  register(){
-    this.router.navigate(['tabs/tab2'])
-  }
-
-  login(){
-    this.router.navigate(['tabs/tab1'])
-  }
-
 }
