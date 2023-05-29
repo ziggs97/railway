@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private router:Router) {}
+
+  ngOnit(){}
+
+  login(){
+    this.router.navigate(['/tabs/tab2']);
+  }
+
+  register(){
+    this.router.navigate(['register']);
+  }
 
 }

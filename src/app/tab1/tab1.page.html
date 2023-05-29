@@ -22,12 +22,9 @@
         </ion-item>
         <!-- <p *ngIf="form.get('password').touched">Password is invalid</p> -->
         
-        <!-- VRACAS <ion-button color="dark" fill="clear" size="full" id="recoverPasswordButton" >I forgot my e-mail or password</ion-button>
-        <ion-button color="warning" size="full" shape="round" [disabled]="!form.valid" (click)="login()" id="loginButton">LOGIN</ion-button>
-        <ion-button color="warning" fill="clear" size="full" shape="round" (click)="register()">REGISTER</ion-button> -->
         <ion-button color="dark" fill="clear" size="full" id="recoverPasswordButton" >I forgot my e-mail or password</ion-button>
-        <ion-button color="warning" size="full" shape="round" id="loginButton">LOGIN</ion-button>
-        <ion-button color="warning" fill="clear" size="full" shape="round">REGISTER</ion-button>
+        <ion-button color="warning" size="full" shape="round" id="loginButton" (click)="login()">LOGIN</ion-button>
+        <ion-button color="warning" fill="clear" size="full" shape="round" (click)="register()">REGISTER</ion-button>
       </ion-card-content>
     </ion-card>
   <!-- </form> -->
