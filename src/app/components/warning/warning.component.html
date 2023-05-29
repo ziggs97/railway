@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-card-header>
+    <ion-item lines="none">
+      <ion-icon name="shield-checkmark-sharp" slot ="end" color = "warning" *ngIf="validRamp"></ion-icon>
+      <ion-icon name="alert-circle-sharp" slot="end" color = "warning" *ngIf="!validRamp"></ion-icon>
+      <ion-card-title>{{title}}</ion-card-title>
+    </ion-item>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="bold">Address:  {{address}}</p>
+    <p class = "bold">Neighborhood:  {{neighborhood}}</p>
+    <p class = "bold">Country:  {{country}}</p>
+    <p class = "bold">City:  {{city}}</p>
+    <p class = "bold">Valid ramp:  {{validRamp}}</p>
+    <br *ngIf="edit">
+    <ion-button class="buttonED"color="warning" size="small" shape="round" *ngIf="edit">EDIT</ion-button>
+    <ion-button  class="buttonED" color="warning" size="small" shape="round" *ngIf="edit">DELETE</ion-button>
+  </ion-card-content>
+</ion-card>
