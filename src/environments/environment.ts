@@ -1,20 +1,34 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDpluAKWPma5VjiowKseEI5uQoHqozL0sA",
+    authDomain: "railway-app-f8813.firebaseapp.com",
+    projectId: "railway-app-f8813",
+    storageBucket: "railway-app-f8813.appspot.com",
+    messagingSenderId: "288969398990",
+    appId: "1:288969398990:web:9544732ed853906d738e9f"
+  }
 };
 
+firebase.initializeApp(environment.firebase);
+
 // Your web app's Firebase configuration
-export const firebaseConfig = {
-  apiKey: "AIzaSyDpluAKWPma5VjiowKseEI5uQoHqozL0sA",
-  authDomain: "railway-app-f8813.firebaseapp.com",
-  projectId: "railway-app-f8813",
-  storageBucket: "railway-app-f8813.appspot.com",
-  messagingSenderId: "288969398990",
-  appId: "1:288969398990:web:9544732ed853906d738e9f"
-};
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyDpluAKWPma5VjiowKseEI5uQoHqozL0sA",
+//   authDomain: "railway-app-f8813.firebaseapp.com",
+//   projectId: "railway-app-f8813",
+//   storageBucket: "railway-app-f8813.appspot.com",
+//   messagingSenderId: "288969398990",
+//   appId: "1:288969398990:web:9544732ed853906d738e9f"
+// };
 
 
 /*
