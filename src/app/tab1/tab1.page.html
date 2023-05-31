@@ -9,7 +9,7 @@
       <ion-card-content>
         <ion-item>
           <ion-label labelPlacement="floating" >E-mail: </ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
           <!-- <ion-input type="email" formControlName="email"></ion-input> -->
         </ion-item>
         <!-- <app-error-message [field]="form.get('email')" error="required" message="E-mail is required" ></app-error-message>
@@ -17,7 +17,7 @@
         <!-- <ion-label *ngIf="form.get('email').touched">E-mail is invalid</ion-label> -->
         <ion-item>
           <ion-label labelPlacement="floating">Password: </ion-label>
-          <ion-input type="password" ></ion-input>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
           <!-- <ion-input type="password" formControlName="password"></ion-input> -->
         </ion-item>
         <!-- <p *ngIf="form.get('password').touched">Password is invalid</p> -->
