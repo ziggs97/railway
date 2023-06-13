@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, doc, addDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private usersCollection: any;
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth, private firestore: Firestore) {
+    this.usersCollection = collection(firestore, 'users');
+  }
 
   async login(email: string, password: string): Promise<void> {
     try {
@@ -17,19 +21,14 @@ export class AuthService {
     }
   }
 
-  async register(email: string, password: string): Promise<void> {
+  async register(user: any): Promise<string | null> {
     try {
-      await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const docRef = await addDoc(this.usersCollection, user);
+      console.log('Document written with ID:', docRef.id);
+      return docRef.id;
     } catch (error) {
-      throw error;
-    }
-  }
-
-  async logout(): Promise<void> {
-    try {
-      await this.afAuth.signOut();
-    } catch (error) {
-      throw error;
+      console.error('Error adding document:', error);
+      return null;
     }
   }
 
