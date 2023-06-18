@@ -58,4 +58,17 @@ export class AuthService {
       throw error;
     }
   }
+
+  getCurrentUserEmail(): Promise<string | null> {
+    return new Promise((resolve, reject) => {
+      this.afAuth.onAuthStateChanged((user) => {
+        if (user) {
+          resolve(user.email);
+        } else {
+          resolve(null);
+        }
+      }, reject);
+    });
+  }
+
 }

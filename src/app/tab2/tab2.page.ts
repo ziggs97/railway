@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +10,24 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 })
 export class Tab2Page {
 
-  //Call number android/ios
+  userEmail="";
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.getUserEmail();
+  }
+
+  async getUserEmail() {
+    try {
+      this.userEmail = await this.authService.getCurrentUserEmail() || 'Pokemon Guest';
+    } catch (error) {
+      console.error('Error retrieving user email:', error);
+      this.userEmail = 'Pokemon Guest';
+    }
+  }
+
+  // Call number android/ios
   // constructor(private callNumber: CallNumber) { }
 
   // callPhoneNumber(phoneNumber: string) {
