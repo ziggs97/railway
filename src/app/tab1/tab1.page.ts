@@ -17,54 +17,45 @@ export class Tab1Page {
 
   ngOnit(){}
 
-  async login(): Promise<void> {
-    try {
-      await this.authService.login(this.email, this.password);
-      // Login successful
-      this.router.navigate(['/tabs/tab2']); // Navigate to Tab2
-    } catch (error) {
-      // Handle login error
-      const toast = await this.toastController.create({
-        message: 'Invalid login data.',
-        duration: 3000,
-        position: 'bottom',
-        color: 'danger',
+  login(): void {
+    this.authService.login(this.email, this.password)
+      .then(() => {
+        // Login successful
+        // Do something, such as navigating to another page
+        this.router.navigate(['/tabs/tab2']);
+      })
+      .catch((error) => {
+        // Login failed
+        console.error('Login failed:', error);
+        // Handle the error, such as displaying an error message
       });
-      toast.present();
-    }
   }
 
   async resetPassword(): Promise<void> {
-    if (!this.email) {
-      const toast = await this.toastController.create({
-        message: 'Please enter your email.',
-        duration: 3000,
-        position: 'bottom',
-        color: 'danger',
-      });
-      toast.present();
-      return;
-    }
     try {
-      await this.authService.resetPassword(this.email);
-      // Password reset email sent
-      const toast = await this.toastController.create({
-        message: 'Password reset email sent.',
-        duration: 3000,
-        position: 'bottom',
-        color: 'success',
-      });
-      toast.present();
+      const userExists = await this.authService.checkUserExists(this.email);
+      if (userExists) {
+        await this.authService.resetPassword(this.email);
+        // Password reset email sent successfully
+        // Do something, such as displaying a success message
+        this.presentToast('Password reset email sent successfully');
+      } else {
+        throw new Error('User not found');
+      }
     } catch (error) {
-      // Handle reset password error
-      const toast = await this.toastController.create({
-        message: 'Error resetting password. Please try again.',
-        duration: 3000,
-        position: 'bottom',
-        color: 'danger',
-      });
-      toast.present();
+      console.error('Password reset email sending failed:', error);
+      // Handle the error, such as displaying an error message
+      this.presentToast('Failed to send password reset email');
     }
+  }
+
+  private async presentToast(message: string): Promise<void> {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
   }
 
   // login(){

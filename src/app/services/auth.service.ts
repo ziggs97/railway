@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Firestore, collectionData, collection, doc, addDoc } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, doc, addDoc, getDoc } from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,12 @@ export class AuthService {
   async login(email: string, password: string): Promise<void> {
     try {
       await this.afAuth.signInWithEmailAndPassword(email, password);
+      const userDoc = doc(this.usersCollection, email); // Assuming the email is used as the document ID
+      const userSnapshot = await getDoc(userDoc);
+      if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
+        // Access the user data and perform actions as needed
+      }
     } catch (error) {
       throw error;
     }
@@ -36,6 +43,18 @@ export class AuthService {
     try {
       await this.afAuth.sendPasswordResetEmail(email);
     } catch (error) {
+      console.error('Error sending password reset email:', error);
+      throw error;
+    }
+  }
+
+  async checkUserExists(email: string): Promise<boolean> {
+    try {
+      const userDocRef = doc(this.firestore, 'users', email);
+      const userSnapshot = await getDoc(userDocRef);
+      return userSnapshot.exists();
+    } catch (error) {
+      console.error('Error checking user existence:', error);
       throw error;
     }
   }
