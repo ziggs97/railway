@@ -44,6 +44,7 @@ export class RegisterPage implements OnInit {
         // Registration successful
         console.log('Registration successful with document ID:', docId);
         // Perform any additional actions here, such as displaying a success message or navigating to another page
+        this.router.navigate(['/tabs/tab1']);
       })
       .catch((error) => {
         // Registration failed

@@ -18,36 +18,34 @@
         <ion-list>
           <ion-list>
             <ion-item>
-              <ion-input label="Name:" placeholder=""></ion-input>
+              <ion-input label="Name:" placeholder="" [(ngModel)]="name" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input label="Surname:" placeholder=""></ion-input>
+              <ion-input label="Surname:" placeholder="" [(ngModel)]="surname" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input label="Country:" placeholder=""></ion-input>
+              <ion-input label="Country:" placeholder="" [(ngModel)]="country"></ion-input>
             </ion-item>
         
             <ion-item>
-              <ion-input label="Zip code:" type="number" placeholder=""></ion-input>
+              <ion-input label="City:"  placeholder="" [(ngModel)]="city"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input label="Telephone number:" type="tel" placeholder=""></ion-input>
+              <ion-input label="Telephone number:"  placeholder="" [(ngModel)]="telephone"></ion-input>
             </ion-item>
         
             <ion-item>
-              <ion-input label="E-mail:" type="email" placeholder=""></ion-input>
+              <ion-input label="E-mail:" type="email" placeholder="" [(ngModel)]="email" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input label="Password:" type="password" value=""></ion-input>
+              <ion-input label="Password:" type="password" value="" [(ngModel)]="password" required   ></ion-input>
             </ion-item>
 
-            <ion-item>
-              <ion-input label="Confirm password:" type="password" value=""></ion-input>
-            </ion-item>
+
 
            
           </ion-list>
