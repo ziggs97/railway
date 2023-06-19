@@ -24,34 +24,34 @@
     
       <ion-card-content>
         <ion-list>
-          <ion-list>
-            <ion-item>
-              <ion-input label="Title:" placeholder=""></ion-input>
-            </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="title" label="Title:" placeholder=""></ion-input>
+          </ion-item>
 
-            <ion-item>
-              <ion-input label="Address:" placeholder=""></ion-input>
-            </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="country" label="Country:" placeholder=""></ion-input>
+          </ion-item>
 
-            <ion-item>
-              <ion-input label="Country:" placeholder=""></ion-input>
-            </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="neighborhood" label="Neighborhood:" placeholder=""></ion-input>
+          </ion-item>
 
-            <ion-item>
-              <ion-input label="City:" placeholder=""></ion-input>
-            </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="address" label="Address:" placeholder=""></ion-input>
+          </ion-item>
 
-            <ion-item>
-              <ion-input label="Valid ramp:" placeholder=""></ion-input>
-            </ion-item>
-           
-          </ion-list>
+          <ion-item>
+            <ion-input [(ngModel)]="city" label="City:" placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Valid ramp:</ion-label>
+            <ion-checkbox [(ngModel)]="validRamp"></ion-checkbox>
+          </ion-item>
         </ion-list>
 
         <br/>
-        <ion-button color="warning" size="full" shape="round" (click)="listWarnings()">ADD WARNING</ion-button>
-       
-        
+        <ion-button color="warning" size="full" shape="round" (click)="addWarning()">ADD WARNING</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
