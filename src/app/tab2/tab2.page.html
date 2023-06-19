@@ -3,6 +3,11 @@
     <ion-title>
       Railway
     </ion-title>
+    <ion-buttons slot="end" *ngIf="userEmail">
+      <ion-button (click)="logout()">
+        Logout
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

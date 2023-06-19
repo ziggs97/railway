@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class Tab2Page {
 
   userEmail="";
 
-  constructor(private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.getUserEmail();
@@ -24,6 +25,17 @@ export class Tab2Page {
     } catch (error) {
       console.error('Error retrieving user email:', error);
       this.userEmail = 'Pokemon Guest';
+    }
+  }
+
+  async logout() {
+    try {
+      await this.authService.logout();
+      console.log('User logged out successfully');
+      this.router.navigate(['/tabs/tab1']); // Navigate to the login page or any other desired page after logout
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Handle the error, such as displaying an error message
     }
   }
 
