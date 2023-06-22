@@ -16,7 +16,7 @@ import { WarningModule } from '../components/warning/warning.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
-    WarningModule
+    WarningModule,
   ],
   declarations: [Tab3Page]
 })

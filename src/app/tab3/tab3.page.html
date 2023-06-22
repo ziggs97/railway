@@ -22,12 +22,23 @@
 
   <ion-list>
 
+    <ion-item  *ngFor="let warning of warnings" >
+      <app-warning class="warning-item"
+        [title]="warning.title"
+        [address]="warning.address"
+        [neighborhood]="warning.neighborhood"
+        [country]="warning.country"
+        [city]="warning.city"
+        [validRamp]="warning.validRamp"
+        [edit]="true"
+      ></app-warning>
+    </ion-item>
+    
     <app-warning [validRamp]="true" [edit]="true" title="Warning 1"></app-warning>
     <app-warning [validRamp]="false" [edit]="true" title="Warning 2"></app-warning>
     <app-warning [validRamp]="false" [edit]="true" title="Warning 3"></app-warning>
     <app-warning [validRamp]="true" [edit]="true" title="Warning 4"></app-warning>
     
-
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
