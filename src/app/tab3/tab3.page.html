@@ -24,6 +24,8 @@
 
     <ion-item  *ngFor="let warning of warnings" >
       <app-warning class="warning-item"
+        [docId]="warning.docId"
+        [documentRef]="warning.documentRef"
         [title]="warning.title"
         [address]="warning.address"
         [neighborhood]="warning.neighborhood"
@@ -34,10 +36,10 @@
       ></app-warning>
     </ion-item>
     
-    <app-warning [validRamp]="true" [edit]="true" title="Warning 1"></app-warning>
+    <!-- <app-warning [validRamp]="true" [edit]="true" title="Warning 1"></app-warning>
     <app-warning [validRamp]="false" [edit]="true" title="Warning 2"></app-warning>
     <app-warning [validRamp]="false" [edit]="true" title="Warning 3"></app-warning>
-    <app-warning [validRamp]="true" [edit]="true" title="Warning 4"></app-warning>
+    <app-warning [validRamp]="true" [edit]="true" title="Warning 4"></app-warning> -->
     
   </ion-list>
 
