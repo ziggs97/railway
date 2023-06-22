@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Geolocation, GeolocationPosition } from '@capacitor/geolocation';
 
 
 @Component({
@@ -13,10 +14,11 @@ export class Tab2Page {
 
   userEmail="";
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private geolocation: Geolocation) {}
 
   ngOnInit() {
     this.getUserEmail();
+    this.getCurrentLocation();
   }
 
   async getUserEmail() {
@@ -47,5 +49,16 @@ export class Tab2Page {
   //   .then(res => console.log('Launched dialer!', res))
   //   .catch(err => console.log('Error launching dialer', err));
   // }
+
+  getCurrentLocation() {
+    Geolocation.getCurrentPosition()
+      .then((position: GeolocationPosition) => {
+        console.log('Latitude:', position.coords.latitude);
+        console.log('Longitude:', position.coords.longitude);
+      })
+      .catch((error) => {
+        console.error('Error getting current location:', error);
+      });
+  }
 
 }
