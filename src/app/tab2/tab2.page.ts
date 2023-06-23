@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Geolocation, GeolocationPosition } from '@capacitor/geolocation';
+
+import { GoogleMap } from '@capacitor/google-maps';
+import { Plugins } from '@capacitor/core';
+
+const { GoogleMaps } = Plugins;
+declare var google: any;
 
 
 @Component({
@@ -12,13 +18,18 @@ import { Geolocation, GeolocationPosition } from '@capacitor/geolocation';
 })
 export class Tab2Page {
 
+  
   userEmail="";
+
+  map: any;
+  
 
   constructor(private router: Router, private authService: AuthService, private geolocation: Geolocation) {}
 
   ngOnInit() {
     this.getUserEmail();
     this.getCurrentLocation();
+    // this.loadMap();
   }
 
   async getUserEmail() {
@@ -60,5 +71,16 @@ export class Tab2Page {
         console.error('Error getting current location:', error);
       });
   }
+
+  // async loadMap() {
+  //   const mapOptions = {
+  //     center: new google.maps.LatLng(37.7749, -122.4194), // Initial map center coordinates
+  //     zoom: 12 // Initial zoom level
+  //   };
+
+  //   this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  // }
+  
+  
 
 }

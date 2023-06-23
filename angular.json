@@ -13,26 +13,29 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "www",
+            "allowedCommonJsDependencies": [
+              "@capacitor-community/http",
+              "@capacitor-community/sqlite"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./svg"
-              }
-            ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
-            "scripts": []
+            "aot": true,
+            "outputPath": "www",
+            "serviceWorker": true,
+            "ngswConfigPath": "src/ngsw-config.json",
+            "map": {
+              "googleMapsApiKey": "AIzaSyAgghWa6iOV-KmhqsfgwAmE-2cXR37GEkI" 
+            }
           },
           "configurations": {
             "production": {
@@ -71,6 +74,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
